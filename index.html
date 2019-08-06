@@ -1,0 +1,370 @@
+<!--
+	File: index.html
+	Code: Stone+W3.CSS  
+	Date: 29-Juli-2019. Senin
+	User: Budiono.
+	Web : www.datablok.id
+-->
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+	<!--meta data-->
+	<meta charset="UTF-8">
+	<meta name="description" content="Membuat sendiri aplikasi online">
+	<meta name="keywords" content="Bitcoin,Ethereum,Ripple,Dogecoin,Litecoin,Bitcoin Gold,Waves,Trading,Cryptocurrency,Digital asset,HTML,CSS,XML,JavaScript">
+	<meta name="author" content="Budiono">
+	
+	<!--viewport-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!--External CSS-->
+	<link rel="stylesheet" type="text/css" href="css/snackbar.css">
+	
+	<!--External w3.CSS-->
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+	
+	<!--
+		dark-grey [best]
+		blue-grey [best]
+		black [best]
+		
+		10.green
+		grey [y]
+		12.lime
+		02.pink [ok]
+		13.khaki [ok]
+		
+		
+		5.indigo [bad] buruk ditempat terang, terlalu silau
+		6. blue [bad]
+		7.light-blue [x] buruk ditempat gelap
+		8.cyan [bad]
+		9.teal [x]
+		11.light-green [x]
+		14.yellow [bad] silau
+		
+		brown [x]
+		deep-orange [x]
+		
+		
+		3.purple [x]
+		4.deep-purple [x]
+		lime [x]
+		amber [x]
+		orange [x]
+		1.red [x]
+		
+	-->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+	<style>
+		body {font-family: "Roboto", sans-serif}
+		.w3-bar-block .w3-bar-item {
+			padding: 16px;
+			
+		}
+		div.gold{
+			background-color:gold;
+			height:1px;
+		}
+	</style>
+	
+	<script>
+
+	var myServer=sessionStorage.getItem("myServer"); 
+
+	if (myServer==null){ 
+		
+		myServer="https://www.datablok.id/v1/"; 
+		//myServer="https://www.35.226.131.186++";
+		
+	}
+	
+	var globalVar = {
+		login_blok: null
+		,user_name:null
+		,user_fullname:null
+		,company_blok:null
+		,company_name:null
+	};
+	
+	var globalCoa = {
+		baris:0
+		,kolom:0
+		,modul:null
+		,coa_blok:null
+		,coa_number:null
+		,coa_name:null
+	};
+	
+	var globalFolder ={
+		modul:null
+		,baris:0
+		,drive_blok:null
+		,folder_blok:null
+		,folder_name:null
+	}
+	
+	var g = globalVar;
+	var gCoa = globalCoa;
+	var gFolder=globalFolder;
+	
+	if (sessionStorage.getItem("login_blok") != null){
+		
+		g.login_blok = sessionStorage.getItem("login_blok");
+	}
+
+	if (sessionStorage.getItem("company_blok") != null){
+		
+		g.company_blok = sessionStorage.getItem("company_blok");
+	}
+
+	if (sessionStorage.getItem("company_name") != null){
+		
+		g.company_name = sessionStorage.getItem("company_name");
+
+	}
+
+	</script>
+	
+		<!--basic user login-->
+	<script src="./js/xyz.js"></script> 
+	<script src="./js/admin.js"></script> 
+	<script src="./js/login.js"></script> 
+	<script src="./js/logout.js"></script> 
+	<script src="./js/forgot.js"></script> 
+	<script src="./js/user.js"></script> 
+	<script src="./js/menu.js"></script> 
+	<script src="./js/menusub.js"></script> 
+	<script src="./js/subuser.js"></script> 
+	<script src="./js/subusercompany.js"></script> 
+
+	<!--app-->
+	<script src="./js/note.js"></script> 
+	<script src="./js/profile.js"></script> 
+	
+	<!--setting -->
+	<script src="./js/home.js"></script> 
+	<script src="./js/default.js"></script>
+	<script src="./js/blok.js"></script> 
+	<script src="./js/coa.js"></script>
+	<script src="./js/company.js"></script>
+	
+	<!--datablok-->
+	<script src="./js/folder.js"></script>
+	<script src="./js/folder_lookup.js"></script>
+	<script src="./js/file.js"></script>
+	<script src="./js/list.js"></script>
+	
+	<!--market-->
+	<script src="./js/market.js"></script>
+	<script src="./js/depositcrypto.js"></script>
+	<script src="./js/withdrawcrypto.js"></script>
+	<script src="./js/buycrypto.js"></script>
+	<script src="./js/sellcrypto.js"></script>
+
+
+	<title>
+		Aplikasi Online
+	</title>
+</head>
+<body onload='load1()'>
+
+<!--left-->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card" style="z-index:3;width:250px;" id="mySidebar">
+	<div class="gold"></div>
+	<div class="w3-container w3-theme-d5 w3-center"><i class="fa fa-bitcoin w3-xxxlarge" style="color:gold"></i></div>
+	<div class="gold"></div>
+	<a class="w3-bar-item w3-button w3-hide-large w3-large w3-dark-gray" href="javascript:void(0)" onclick="w3_close()">Close <i class="fa fa-remove"></i></a>
+	<button id = "menuHome" value="Home" onclick="w3_close();jsHome.viewRead()" class="w3-bar-item w3-button w3-xlarge w3-theme-d1"><i class="fa fa-home"></i>&nbsp;Home</button><!--home button-->
+	<div class="gold"></div>
+	<span id="menu"></span>
+	<span id="menuDua"></span>
+	<input type="button" id = "btnNew" onclick="w3_close();jsAdmin.viewCreate();" value="New User" class="w3-bar-item w3-button w3-theme-d5"><!--new user button-->
+	<div class="gold"></div>
+	<input type="button" id = "btnForgot" onclick="w3_close();jsForgot.viewRead();" value="Forgot Password" class="w3-bar-item w3-button w3-theme-d5"><!--forgot password button-->
+	<div class="gold"></div>
+	<button id = "menuLogin" value="Login" onclick="klikLogin()" class="w3-bar-item w3-button w3-theme"><i class="fa fa-sign-in"></i>&nbsp;Login</button>
+	<button id = "menuLogout" value="Logout" onclick="klikLogin()" class="w3-bar-item w3-button w3-theme"><i class="fa fa-sign-out"></i>&nbsp;Logout</button>
+	
+	
+</nav>
+
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+
+<div class="w3-main" style="margin-left:250px;">
+
+	
+	<div id="myTop" class="w3-container w3-top w3-theme w3-large">
+		<p>
+		<i class="fa fa-bars w3-button w3-theme w3-hide-large w3-xlarge" onclick="w3_open()"></i>
+		<!--<span id="userAktif"></span>-->
+		<span id="myIntro" class="w3-hide">D a t a b l o k . i d</span><!--myintro tampil ketika discroll-->
+		</p>
+	</div>
+	
+	<header class="w3-container w3-theme" style="padding:60px 32px">
+	<h1 class="w3-xxxlarge">D a t a b l o k . i d</h1>
+	<span id="userAktif" class="w3-large"></span>
+	</header>
+	
+	<div class="gold"></div>
+
+<!--middle-->
+<div class="w3-container" style="padding:20px">
+
+	<p id="header"></p>
+	<h4 id="header2"></h4>
+	<p id="companyHeader"></p>
+
+	
+	<p id="themeForm"></p>
+	<div id="viewMid">
+	<h1>Aplikasi Online</h1>
+	
+</div>	
+
+	<!--start modal form-->
+	<div class="w3-container">
+	  <div id="id01" class="w3-modal">
+		<div class="w3-modal-content w3-card-4">
+		  <header class="w3-container w3-theme-d4">
+			<span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+			<h2 id="headerModal">Modal Header</h2>
+			</header>
+			<div  class= "w3-container">
+				<div id="searchModal"></div>
+				<div id="isiModal" style="overflow-y: scroll;height: 300px">
+					<p>Some text. Some text. Some text.</p>
+					<p>Some text. Some text. Some text.</p>
+				</div><p>
+			</div>  
+		</div>
+	  </div>
+	</div>
+	<!--end modal -->
+
+
+<div id="snackbar"></div>
+<div id="msgindex"></div>
+     
+</div>
+
+<script>
+// Open and close the sidebar on medium and small screens
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Change style of top container on scroll
+window.onscroll = function() {myFunction()};
+function myFunction() {
+  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+    document.getElementById("myTop").classList.add("w3-card-4", "w3-animate-opacity");
+    document.getElementById("myIntro").classList.add("w3-show-inline-block");
+  } else {
+    document.getElementById("myIntro").classList.remove("w3-show-inline-block");
+    document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
+  }
+}
+
+// Accordions
+function myAccordion(id) {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+    x.previousElementSibling.className += " w3-theme";
+  } else { 
+    x.className = x.className.replace("w3-show", "");
+    x.previousElementSibling.className = 
+    x.previousElementSibling.className.replace(" w3-theme", "");
+  }
+}
+</script>
+     
+</body>
+
+	<script>
+	
+	function load1(){
+		if (g.login_blok==null){
+			
+			//document.getElementById("menuLogin").value = "Login";
+			document.getElementById("menuLogout").style.display="none";
+			document.getElementById("msgindex").innerHTML="";
+			
+			jsLogin.htmlCreate();
+			
+			
+		}else{
+			
+			//document.getElementById("menuLogin").value = "Logout";
+			document.getElementById("menuLogin").style.display="none";
+			document.getElementById("menuHome").style.display="inline";
+			document.getElementById("btnNew").style.display="none";
+			document.getElementById("btnForgot").style.display="none";
+
+			jsLogin.isLogin();
+			
+			jsMenu.viewRead();
+			
+			jsMenusub.viewRead();
+			
+			jsHome.viewRead();
+			
+		}
+		
+	}
+		
+	function klikLogin(){
+		w3_close();
+		if (g.login_blok == null){
+			
+			jsLogin.htmlCreate();
+			
+		}else{
+			
+			jsLogout.htmlCreate();
+
+		}		
+	}
+	
+	</script>
+	
+	<script>
+		function papanInfo(kalimat, err){
+			messageBox(kalimat);
+			var tulisan;
+			
+			if (err==0){
+				tulisan = '<div class="w3-panel w3-cyan w3-display-container w3-round-xlarge">';
+				tulisan+='<p><span onclick="this.parentElement.style.display=\'none\'" class="w3-button w3-large w3-display-topright">&times;</span>';
+				tulisan+='<strong>Success! </strong>';
+			}else{
+				tulisan = '<div class="w3-panel w3-amber w3-display-container w3-round-xlarge">';
+				tulisan+= '<p><span onclick="this.parentElement.style.display=\'none\'" class="w3-button w3-large w3-display-topright">&times;</span>';
+				tulisan+='<p><strong>Warning! </strong>';
+			}
+			tulisan += kalimat +'</p>';
+			tulisan += '</div>';
+			return tulisan;
+		}
+		
+		function messageBox(msg) {
+			var x = document.getElementById("snackbar");
+			x.className = "show";
+			x.innerHTML = "<strong style='color:yellow'>"+msg+"</strong>";
+			setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+		}
+	</script>
+</html> 
+

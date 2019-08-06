@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Datablok.id</title>
+	</head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	
+	<!--icon-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!--font header-->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster&effect=brick-sign">
+	<style>
+		div.gold {
+			border-top: 1px solid gold;
+		}
+		
+		.sticky {
+			position: fixed;
+			top: 0;
+			width: 100%;
+		}
+		.w3-lobster {
+			font-family: "Lobster", Sans-serif;
+		}
+		body{
+			background-color: #eee;
+		}
+	</style>
+	<script src="topbar.js"></script>
+	
+	<script type="text/javascript">
+		pertama();
+	</script>
+	<script>
+		
+		let a = window.location.href;
+		let b = window.location.hostname
+		let c = window.location.pathname //
+		let d = window.location.protocol // http
+		let e = window.location.assign // new load url
+		let v = {"href":a,"hostname":b, "pathname":c,"protocol":d,"assign":e}
+		//alert ("href: "+v.href +"\nhostname: "+ v.hostname +"\npathname: "+ v.pathname +"\nprotocol "+ v.protocol +"n\assign "+ v.assign);
+		
+		function loadDoc(url, cFunction) {
+			
+			var xhttp, dbParam;
+			//dbParam = JSON.stringify(obj);
+			xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4) {
+					cFunction(this);
+				}
+			};
+			xhttp.open("POST", url, false);
+			xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhttp.send();
+			//xhttp.send(dbParam);
+		}
+	</script>
+
+
+	
+<body>
+	
+	<header class="w3-container w3-teal w3-lobster font-effect-brick-sign">
+		<div class="w3-cell-row">
+			<div class="w3-container w3-cell w3-mobile">
+				<span class="w3-xxxlarge" style="color:lavender">Datablok.id</span>
+			</div>
+
+			  <div class="w3-container w3-cell w3-right-align w3-mobile">
+				<p class="w3-xlarge">_,;:* Tutorial: Step by Step Membuat Sendiri Aplikasi Online *:;,_.&nbsp;&nbsp;"</p>
+			  </div>
+		</div>
+	</header>
+	<div class="gold"></div>
+	
+	<!--header menu-->
+	<div id="div_topbar"></div>
+	
+	<!--kolom halaman-->	
+	<div class="w3-row">
+		
+		<!--Left-->
+		<div class="w3-col m2">
+			<div id="div_leftbar" class="w3-container"></div>
+		</div>
+		
+		<!--Middle-->
+		<div class="w3-col m8">
+			<div id="div_midbar" class="w3-card"></div>
+			<div id="div_message"></div>
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		</div>
+		
+		<!--Right-->
+		<div class="w3-col m2">
+			<div class="container">
+			<p>RIGHT</p>
+			</div>
+		</div>
+	</div>
+	
+	<!-- footer-->
+	<footer class="w3-panel w3-light-green">
+		<div class="w3-row">
+		  <div class="w3-col m3">
+			<p>&nbsp;</p>
+		  </div>
+		  <div class="w3-col m6 w3-center">
+
+
+			<p>Kami akan terus menerus update content web, update APIs, 
+			dan menguji kembali seluruh aplikasi serta instrumen tutorial sesuai kebutuhan terkini.</p>
+			<p><strong>This site will grow as we add more ...</strong></p>
+			
+			<h4>Selamat Mencoba. Anda Pasti Bisa!</h4>
+
+		  </div>
+		  <div class="w3-col m3">
+			<p>&nbsp;</p>
+		  </div>
+		</div>
+		<div class="w3-center">
+			<p>Pertanyaan, kritik dan saran, <a href="<?php PATH?>index.php?page=kontak">kontak kami</a>: </p>
+			<span><i class="fa fa-envelope" style="font-size:30px"></i> datablokid@gmail.com |</span>
+			<span><i class="fa fa-whatsapp" style="font-size:30px"></i> 0813-1704-9100 |</span>
+			<span><i class="fa fa-twitter" style="font-size:30px"></i> @datablokdotid |</span>
+			<span><i class="fa fa-github" style="font-size:30px"></i> www.github.com/datablokid</span>
+			
+			<span class="w3-lobster font-effect-brick-sign">
+				<p  class="w3-xlarge w3-center" style="color:maroon">Datablok.id &copy;2019</p>
+			</span>
+			
+		</div>
+
+	</footer>
+	
+
+<script>
+	jsTopbar.load();
+
+</script>		
+<script>
+	// fungsi untuk menu header
+	function myFunction() {
+		var x = document.getElementById("demo");
+		// alert(x);
+		if (x.className.indexOf("w3-show") == -1) {
+			x.className += " w3-show";
+		} else { 
+			x.className = x.className.replace(" w3-show", "");
+		}
+	  
+		// back to top
+		document.body.scrollTop = 0; // for safari
+		document.documentElement.scrollTop = 0; // other 
+	}
+</script>
+
+<script>	
+	// sticky function
+	// When the user scrolls the page, execute myFunction
+	window.onscroll = function() {
+		goSticky()
+	};
+
+	// Get the navbar
+	var navbar = document.getElementById("navbar");
+
+	// Get the offset position of the navbar
+	var sticky = navbar.offsetTop;
+
+	// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+	function goSticky() {
+	  if (window.pageYOffset >= sticky) {
+		navbar.classList.add("sticky")
+	  } else {
+		navbar.classList.remove("sticky");
+	  }
+	} 
+</script>
+</body>
+</html>
+
